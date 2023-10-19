@@ -13,15 +13,14 @@ return new class extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('restaurand_id');
+            $table->unsignedBigInteger('restaurant_id');
             $table->string('name');
             $table->string('description');
             $table->string('ingredients');
             $table->boolean('visible')->default(1);
-            $table->decimal('price',10,2)->default(0);
+            $table->decimal('price', 10, 2)->default(0);
             $table->timestamps();
         });
-
     }
 
     /**
