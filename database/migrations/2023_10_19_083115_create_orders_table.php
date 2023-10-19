@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('phone');
             $table->boolean('status')->default(1);
-            $table->decimal('totalprice',10,2)->default(0);
+            $table->decimal('totalprice',10,2);
             $table->timestamps();
         });
     }
