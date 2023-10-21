@@ -17,7 +17,7 @@ class TypologyFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name,
+            'name' => fake()->name(),
             'created_at' => fake()->dateTime(now()),
             'updated_at' => fake()->dateTime(now())
         ];
