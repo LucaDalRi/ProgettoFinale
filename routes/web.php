@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\User\DishController;
+use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('/dishes', DishController::class)
+    ->names([
+        'index' => 'dishes.index',
+        'create' => 'dish.create',
+        'show' => 'dish.show',
+    ]);

@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class Dish extends Model
 {
     use HasFactory;
-    public function dishes(){
-        return $this->belongsToMany(Dish::class);
+    public function orders(){
+        return $this->belongsToMany(Order::class);
     }
 }
