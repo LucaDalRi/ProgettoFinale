@@ -1,1 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
+
+td,
+th {
+    vertical-align: middle;
+}
+
+.form-label {
+    margin-bottom: 3px;
+}
