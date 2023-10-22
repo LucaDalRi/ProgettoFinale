@@ -24,4 +24,6 @@ Route::resource('/dishes', DishController::class)
         'index' => 'dishes.index',
         'create' => 'dish.create',
         'show' => 'dish.show',
+        'edit' => 'dish.edit',
+        'delete' => 'dish.destroy',
     ]);

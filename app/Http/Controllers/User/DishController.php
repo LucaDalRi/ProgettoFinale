@@ -11,7 +11,7 @@ class DishController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Dish $dish)
+    public function index()
     {   
         $dishes = Dish::all();
         return view("user.dishes.index")->with("dishes", $dishes);
@@ -22,6 +22,7 @@ class DishController extends Controller
      */
     public function create()
     {
+
         return view("user.dishes.create");
     }
 
@@ -30,7 +31,11 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['restaurant_id'] = 1;
+        $newDish = new Dish();
+        $newDish->fill($data)->save();
+        return redirect()->route('dishes.index');
     }
 
     /**
@@ -38,7 +43,6 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-
         return view("user.dishes.show")->with("dish", $dish);
     }
 
@@ -47,7 +51,8 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        //
+        $dish = Dish::find($dish->id);
+        return view("user.dishes.edit", compact("dish"));
     }
 
     /**
@@ -55,7 +60,9 @@ class DishController extends Controller
      */
     public function update(Request $request, Dish $dish)
     {
-        //
+        $data = $request->all();
+        $dish->update($data);
+        return redirect()->route('dishes.index', compact('dish'));
     }
 
     /**
@@ -63,6 +70,7 @@ class DishController extends Controller
      */
     public function destroy(Dish $dish)
     {
-        //
+        $dish->delete();
+        return redirect()->route('dishes.index');
     }
 }
