@@ -2,9 +2,34 @@
 @section('title') {{'Welcome'}} @endsection
 
 @section('content')
-    <div class="row">
-        <div class="col-12">
-            <h1>Pagina welcome che rimanderà al login</h1>
+    <header>
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container">
+                        <a class="navbar-brand" href="#"><img src="{{ asset('/img/logo.png') }}" alt="Logo" height="70"></a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <button class="btn btn-outline-light"><a class="nav-link" href="#">Accedi</a></button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="btn btn-outline-light"><a class="nav-link" href="#">Registrati</a></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
         </div>
-    </div>
+    </header>
+    
+
+     
 @endsection
