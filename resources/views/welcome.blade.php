@@ -1,32 +1,9 @@
 @extends('layouts.app')
 @section('content')
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="navbar-brand" href="#"><img src="{{ asset('/img/logo.png') }}" alt="Logo" height="70"></a>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <button class="btn"><a class="nav-link" href="#">Accedi</a></button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="btn"><a class="nav-link" href="#">Registrati</a></button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
     
     <main>
         <!-- Benvenuti -->
-        <section class="py-5 bg-light">
+        <section class="py-5 px-5 bg-light">
             <div class="container px-5 pb-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-xxl-5">
@@ -36,7 +13,7 @@
                             <div class="fs-3 fw-light text-muted">Get ready</div>
                             <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">Benvenuto!</span></h1>
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
-                                <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="#" type="button">Vai al login</a>
+                                <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="#" type="button">Accedi</a>
                                 <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="#" type="button">Registrati</a>
                             </div>
                         </div>
@@ -45,7 +22,7 @@
                         <!-- Header profile picture-->
                         <div class="d-flex justify-content-center mt-5 mt-xxl-0">
                             <div class="profile">
-                                <img class="profile-img" src="{{ asset('/img/logo.png') }}"/>
+                                <img class="profile-img" src="{{ asset('/icons/deliveboo.svg') }}" style="width: 300px"/>
                         </div>
                     </div>
                 </div>
