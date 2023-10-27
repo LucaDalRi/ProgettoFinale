@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('ingredients');
+            $table->string('photo')->default('https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg');
             $table->boolean('visible')->default(1);
             $table->decimal('price', 10, 2)->default(0);
             $table->timestamps();
