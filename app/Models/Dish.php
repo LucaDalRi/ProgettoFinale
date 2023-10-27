@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Dish extends Model
 {
     use HasFactory;
-    protected $fillable = ['restaurant_id', 'name', 'description', 'ingredients', 'visible', 'price'];
+    protected $fillable = ['restaurant_id', 'name', 'description', 'ingredients', 'photo','visible', 'price'];
     public function orders(){
         return $this->belongsToMany(Order::class);
     }

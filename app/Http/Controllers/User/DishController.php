@@ -20,10 +20,9 @@ class DishController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Dish $dish)
     {
-
-        return view("user.dishes.create");
+        return view("user.dishes.create", compact("dish"));
     }
 
     /**
@@ -43,7 +42,7 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        return view("user.dishes.show")->with("dish", $dish);
+        return view("user.dishes.show", compact("dish"));
     }
 
     /**

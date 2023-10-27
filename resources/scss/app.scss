@@ -1,11 +1,28 @@
 @use "./partials/variables" as *;
 @import "~bootstrap/scss/bootstrap";
 
-td,
-th {
-    vertical-align: middle;
+
+.logo_deliveboo {
+    width: 120px;
 }
 
-.form-label {
-    margin-bottom: 3px;
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none
+}
+
+.navbar-toggler:focus-visible {
+    border: none;
+}
+
+:focus-visible::-moz-focus-inner {
+    border: none;
+}
+
+.mt-6 {
+    margin-top: 70px;
+    ;
 }

@@ -1,6 +1,4 @@
 @extends('layouts.app')
-@section('title') {{'Welcome'}} @endsection
-
 @section('content')
     <header>
         <nav class="navbar navbar-expand-lg">
@@ -91,5 +89,5 @@
             </div>
         </div>
     </footer>
-     
+
 @endsection

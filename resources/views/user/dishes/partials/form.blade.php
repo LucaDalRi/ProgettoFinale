@@ -1,20 +1,38 @@
 <form action="{{route($routeForm, $dish)}}" class="row g-3" method="POST">
     @csrf
-    <div class="col-8">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Insert name">
+    <div class="col-6">
+        <div class="form-outline">
+            <input type="text" class="form-control form-control-lg" id="name" name="name">
+            <label for="name" class="form-label">Name</label>
+        </div>
     </div>
-    <div class="col-4">
-        <label for="price" class="form-label">Price</label>
-        <input type="number" class="form-control" id="price" name="price" placeholder="Insert price" step="0.01">
+    <div class="col-6">
+        <div class="form-outline">
+            <input type="number" class="form-control form-control-lg" id="price" name="price" step="0.01">
+            <label for="price" class="form-label">Price</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-outline">
+            <textarea class="form-control form-control-lg" id="description" name="description" rows="2"></textarea>
+            <label for="description" class="form-label">Description</label>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-outline mb-1">
+            <input type="text" class="form-control form-control-lg" id="photo-url" name="photo"></input>
+            <label for="photo-url" class="form-label">Photo URL</label>
+        </div>
+        <div class="form-outline">
+            <input type="file" class="form-control form-control-lg" id="photo-file" name="photo" disabled></input>
+            <label for="photo-file" class="form-label"></label>
+        </div>
     </div>
     <div class="col-12">
-        <label for="description" class="form-label">Description</label>
-        <textarea class="form-control" id="description" name="description" rows="2" placeholder="Insert description"></textarea>
-    </div>
-    <div class="col-12">
-        <label for="ingredients" class="form-label">Ingredients</label>
-        <textarea class="form-control" id="ingredients" name="ingredients" rows="3" placeholder="Insert ingredients"></textarea>
+        <div class="form-outline">
+            <textarea class="form-control form-control-lg" id="ingredients" name="ingredients" rows="3"></textarea>
+            <label for="ingredients" class="form-label">Ingredients</label>
+        </div>
     </div>
     <div class="col-12">
         <p class="m-1">Visible</p>
