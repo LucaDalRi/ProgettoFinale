@@ -3,6 +3,15 @@
     --bs-border-color: #dee2e62d;
 }
 
+.text-deliv {
+    color: #258b86;
+}
+
+body {
+    background-color: #fbfbfb;
+}
+
+// table
 thead {
     background-color: var(--deliv-color);
 }
@@ -17,17 +26,6 @@ tbody>tr>td {
     padding-bottom: 5px !important;
 }
 
-.btn.btn-primary {
-    background-color: var(--deliv-color);
-    border: var(--deliv-color);
-    box-shadow: 0 4px 9px -4px var(--deliv-color);
-    --mdb-btn-box-shadow-state: 0 8px 9px -4px rgba(59, 202, 192, 0.3), 0 4px 18px 0 rgba(59, 202, 195, 0.2);
-}
-
-.btn.btn-primary:hover {
-    background-color: #37aaa5;
-}
-
 .table {
     --bs-table-hover-color: #37aaa446;
     --bs-table-hover-bg: #37aaa446;
@@ -35,21 +33,14 @@ tbody>tr>td {
     // --bs-table-bg: white;
 }
 
-.bg-deliveboo {
-    background-color: var(--deliv-color);
-}
-
-.btn.btn-primary:active {
-    background-color: #2d9792;
-}
-
-.form-check-input:checked:focus::before {
-    box-shadow: 0 0 0 5px var(--deliv-color);
-}
-
 .table-hover>tbody>tr:hover {
     --mdb-table-accent-bg: transparent;
     background-color: rgba(185, 243, 240, 0.2);
+}
+
+// input
+.form-check-input:checked:focus::before {
+    box-shadow: 0 0 0 5px var(--deliv-color);
 }
 
 .form-check-input:checked {
@@ -75,16 +66,8 @@ tbody>tr>td {
 }
 
 .form-check-input[type="radio"]:checked::after {
-    border-radius: 50%;
-    width: .625rem;
-    height: .625rem;
     border-color: var(--deliv-color);
     background-color: var(--deliv-color);
-    transition: border-color;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    left: 50%;
-    top: 50%;
 }
 
 .form-check-input:indeterminate:focus:before {
@@ -191,16 +174,6 @@ tbody>tr>td {
     color: white;
 }
 
-body {
-    background-color: #fbfbfb;
-}
-
-@media (min-width: 991.98px) {
-    main {
-        padding-left: 240px;
-    }
-}
-
 /* Sidebar */
 .sidebar {
     position: fixed;
@@ -250,7 +223,67 @@ body {
     border-radius: .2rem;
 }
 
-.active:hover {
+// custom css
+a:hover {
+    color: #3db7b1 !important;
+}
+
+.bg-deliveboo {
+    background-color: var(--deliv-color);
+}
+
+.btn.btn-primary:active {
+    background-color: #2d9792;
+}
+
+.btn.btn-primary {
+    background-color: var(--deliv-color);
+    border: var(--deliv-color);
+    box-shadow: 0 4px 9px -4px var(--deliv-color);
+    --mdb-btn-box-shadow-state: 0 8px 9px -4px rgba(59, 202, 192, 0.3), 0 4px 18px 0 rgba(59, 202, 195, 0.2);
+}
+
+.btn.btn-primary:hover {
+    background-color: #37aaa5;
+}
+
+.active.ripple:hover {
     z-index: 2;
     background-color: #37aaa5;
+    color: white;
+}
+
+.active.ripple:hover>span,
+.active.ripple:hover>i {
+    color: white;
+}
+
+.active.ripple>span,
+.active.ripple>i {
+    color: white;
+}
+
+.fs-small {
+    font-size: .7rem;
+}
+
+// checkbox
+.form-check-input[type="checkbox"]:checked {
+    background-image: none;
+    background-color: var(--deliv-color);
+}
+
+.form-check-input[type="checkbox"]:checked:focus {
+    background-color: #5bc9c0e5;
+}
+
+.form-check-input {
+    --bs-form-check-bg: #8eeae211;
+    border: 1px solid lightgray;
+}
+
+@media (min-width: 991.98px) {
+    main {
+        padding-left: 240px;
+    }
 }

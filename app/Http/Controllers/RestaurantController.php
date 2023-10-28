@@ -42,7 +42,7 @@ class RestaurantController extends Controller
         $data = $request->all();
 
         $singleRestaurant = new Restaurant;
-        $singleRestaurant->name = $data['name'];
+        $singleRestaurant->name = $data['restaurant_name'];
         $singleRestaurant->address = $data['address'];
         $singleRestaurant->piva = $data['piva'];
         $singleRestaurant->save();

@@ -1,5 +1,20 @@
 @import '~bootstrap/scss/bootstrap';
 
+
+// login
+#intro {
+    background-color: #000000;
+    height: 100vh;
+}
+
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+    #intro {
+        margin-top: -58.59px;
+    }
+}
+
+// navbar
 .logo_deliveboo {
     width: 120px;
 }
@@ -22,5 +37,4 @@
 
 .mt-6 {
     margin-top: 70px;
-    ;
 }
