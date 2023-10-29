@@ -25,7 +25,7 @@
 <body>
     <div id="app">
         @include('layouts.partials.header')
-        <main class="mt-6">
+        <main class="mt-6 dashboard">
             @yield('content')
         </main>
     </div>

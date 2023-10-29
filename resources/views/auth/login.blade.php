@@ -1,9 +1,9 @@
 @extends('layouts.guest')
 
 @section('content')
-    <div>
+    <div class="">
         <div id="intro" class="bg-image shadow-2-strong">
-            <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.8);">
+            <div class="d-flex align-items-center h-100">
                 <div class="container p-5">
                     <div class="row justify-content-center">
                         <div class="col-xl-5 col-md-8">

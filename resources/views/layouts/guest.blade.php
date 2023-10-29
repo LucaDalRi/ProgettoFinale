@@ -18,8 +18,13 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans text-gray-900 antialiased">
-    @yield('content')
+<body class="bg-black">
+    <header class="guest-header px-5 justify-content-end d-flex align-items-center">
+        <a href="{{ route('register') }}" class="btn btn-outline-primary">Register</a>
+    </header>
+    <main>
+        @yield('content')
+    </main>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
 </body>
