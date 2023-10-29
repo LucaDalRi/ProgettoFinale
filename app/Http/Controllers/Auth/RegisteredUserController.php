@@ -38,11 +38,11 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             
             // restaurant validation
-            // 'restaurant_id' => 'required|unique|numeric',
-            // 'restaurant_name' => 'required|unique|min:3|max:50',
-            // 'restaurant_address' => 'required|unique|min:5|max:70',
-            // 'restaurant_photo' => 'nullable'|'image',
-            // 'restaurant_piva' => 'required|unique|numeric|min:13|max:13',
+            'restaurant_id' => 'required|unique|numeric',
+            'restaurant_name' => 'required|unique|min:3|max:50',
+            'restaurant_address' => 'required|unique|min:5|max:70',
+            'restaurant_photo' => 'nullable'|'image',
+            'restaurant_piva' => 'required|unique|numeric|min:13|max:13'
         ]);
         
         
@@ -61,7 +61,6 @@ class RegisteredUserController extends Controller
             'piva' => $request->piva
         ]);
         
-
         event(new Registered($user));
 
         Auth::login($user);
