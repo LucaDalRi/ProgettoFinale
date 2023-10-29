@@ -1,17 +1,4 @@
-.bg-team1 {
-    background: rgb(255, 255, 255);
-    background: linear-gradient(90deg, rgba(40, 173, 173, 1) 0%, rgba(40, 173, 173, 1) 47%, rgb(14, 107, 115) 94%);
-}
-
-.btn-primary{
-    background-color: rgb(40, 173, 173) !important;
-    border-color: rgb(40, 173, 173) !important;
-}
-
-main{
-    padding-left: 120px !important;
-}
-
-footer{
-    padding-left: 120px !important;
+:root {
+    --deliv-color: #3db7b1;
+    --bs-border-color: #dee2e62d;
 }
