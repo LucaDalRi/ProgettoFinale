@@ -15,14 +15,29 @@
                                 </div>
                                 <!-- Email input -->
                                 <div class="form-outline mb-4">
-                                    <input type="email" id="email" class="form-control form-control-lg" />
+
+                                    <input class="form-control form-control-lg" id="email" type="email"
+                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                        value="{{ old('email') }}" required autocomplete="email" />
                                     <label class="form-label" for="email">Email address</label>
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
 
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
-                                    <input type="password" id="password" class="form-control form-control-lg" />
+                                    <input id="password" type="password"
+                                        class="form-control form-control-lg @error('password') is-invalid @enderror"
+                                        name="password">
                                     <label class="form-label" for="password">Password</label>
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
 
                                 <!-- 2 column grid layout for inline styling -->
@@ -30,9 +45,9 @@
                                     <div class="col d-flex justify-content-center align-items-center">
                                         <!-- Checkbox -->
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="form1Example3" checked />
-                                            <label class="form-check-label" for="form1Example3">
+                                            <input class="form-check-input" type="checkbox" value="" id="rememberme"
+                                                checked />
+                                            <label class="form-check-label" for="rememberme">
                                                 Remember me
                                             </label>
                                         </div>
