@@ -1,5 +1,13 @@
 @extends('layouts.guest')
 @section('content')
+    <div class="mt-2 ms-3">
+        <!-- Header profile picture-->
+        <div class="d-flex mt-5 mt-xxl-0">
+            <div class="profile">
+                <img class="profile-img" src="{{ asset('/icons/deliveboo.svg') }}" style="width: 200px" />
+            </div>
+        </div>
+    </div>
     <main>
         <!-- Benvenuti -->
         <section class="py-5 px-5 bg-light">
@@ -21,14 +29,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xxl-7">
-                        <!-- Header profile picture-->
-                        <div class="d-flex justify-content-center mt-5 mt-xxl-0">
-                            <div class="profile">
-                                <img class="profile-img" src="{{ asset('/icons/deliveboo.svg') }}" style="width: 300px" />
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
         </section>
 
