@@ -72,11 +72,12 @@
                                 </form>
                             </div>
                         </td>
-                    </tr>
-                @empty
-                    <p>Nessun piatto da mostrare</p>
+                    @empty
+                        <td class="d-none d-md-table-cell border-0" colspan="6">
+                            <p>La lista è vuota.</p>
+                        </td>
                 @endforelse
-
+                </tr>
             </tbody>
         </table>
     </div>
