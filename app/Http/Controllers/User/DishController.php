@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Dish;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DishController extends Controller
 {
@@ -13,7 +14,8 @@ class DishController extends Controller
      */
     public function index()
     {   
-        $dishes = Dish::all();
+        $user_id = auth()->user()->id;
+        $dishes = Dish::where('restaurant_id', $user_id)->orderBy('name')->get();
         return view("user.dishes.index")->with("dishes", $dishes);
     }
 
