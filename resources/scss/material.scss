@@ -118,12 +118,12 @@ tbody>tr>td {
 
 .form-outline .form-control.active~.form-label,
 .form-outline .form-control:focus~.form-label {
-    transform: translateY(-1rem) translateY(.1rem) scale(.8)
+    transform: translateY(-1rem) translateY(.1rem) scale(.8);
 }
 
 //label
 .form-outline .form-control:focus~.form-label {
-    color: var(--deliv-color)
+    color: var(--deliv-color);
 }
 
 .form-outline .form-control.active~.form-notch .form-notch-middle,
@@ -217,6 +217,10 @@ a:hover {
     color: #3db7b1 !important;
 }
 
+a.btn-warning:hover {
+    color: black !important;
+}
+
 .btn.btn-primary {
     background-color: var(--deliv-color);
     border: var(--deliv-color);
@@ -300,4 +304,58 @@ a.btn-outline-primary:hover {
 .form-check-input {
     --bs-form-check-bg: #8eeae211;
     border: 1px solid lightgray;
+}
+
+a.ripple {
+    border: none;
+}
+
+// errors
+.error {
+    border: 1px solid #dc3545;
+    outline-color: #dc3545;
+}
+
+.form-outline .form-control.error:focus~.form-label {
+    color: #dc3545;
+}
+
+.form-outline .form-control.active~.form-notch .form-notch-middle,
+.form-outline .form-control.error:focus~.form-notch .form-notch-middle {
+    border-right: none;
+    border-left: none;
+    border-top: 1px solid transparent
+}
+
+.form-outline .form-control.error:focus~.form-notch .form-notch-middle {
+    border-color: #dc3545;
+    box-shadow: 0 1px 0 0 #dc3545;
+    border-top: 1px solid transparent
+}
+
+.form-outline .form-control.active~.form-notch .form-notch-leading,
+.form-outline .form-control.error:focus~.form-notch .form-notch-leading {
+    border-right: none
+}
+
+.form-outline .form-control.error:focus~.form-notch .form-notch-leading {
+    border-color: #dc3545;
+    box-shadow: -1px 0 0 0 #dc3545, 0 1px 0 0 #dc3545, 0 -1px 0 0 #dc3545
+}
+
+.form-outline .form-control.error:focus~.form-notch .form-notch-trailing {
+    border-color: #dc3545;
+    box-shadow: 1px 0 0 0 #dc3545, 0 -1px 0 0 #dc3545, 0 1px 0 0 #dc3545
+}
+
+
+.form-outline .form-control~.form-notch-error div {
+    pointer-events: none;
+    border: 2px solid #dc3545;
+    border-right-width: 2px;
+    border-right-style: solid;
+    border-right-color: #dc3545;
+    box-sizing: border-box;
+    background: transparent;
+    transition: all .2s linear;
 }

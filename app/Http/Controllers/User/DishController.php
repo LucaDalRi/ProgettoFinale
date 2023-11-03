@@ -5,15 +5,26 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Dish;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DishController extends Controller
 {
+
+    protected $validatedDish = [
+        "name" => ["required", "string"],
+        "description" => ["required", "string"],
+        "ingredients" => ["required", "string"],
+        "photo" => ["url:https", "nullable"],
+        "visible" => ["required", "boolean"],
+        "price" => ["required","decimal:2"]
+    ];
     /**
      * Display a listing of the resource.
      */
     public function index()
     {   
-        $dishes = Dish::all();
+        $user_id = auth()->user()->id;
+        $dishes = Dish::where('restaurant_id', $user_id)->orderBy('name')->get();
         return view("user.dishes.index")->with("dishes", $dishes);
     }
 
@@ -30,8 +41,10 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $data['restaurant_id'] = 1;
+        // $data = $request->all();
+        $data = $request->validate($this->validatedDish);
+        $data['restaurant_id'] = auth()->user()->id;
+        $data['photo'] = $data['photo'] ?? 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg';
         $newDish = new Dish();
         $newDish->fill($data)->save();
         return redirect()->route('dishes.index');
@@ -60,6 +73,7 @@ class DishController extends Controller
     public function update(Request $request, Dish $dish)
     {
         $data = $request->all();
+        // dd($data);
         $dish->update($data);
         return redirect()->route('dishes.index', compact('dish'));
     }

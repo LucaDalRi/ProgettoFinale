@@ -18,13 +18,20 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-black">
-    <header class="guest-header px-5 justify-content-end d-flex align-items-center">
-        <a href="{{ route('register') }}" class="btn btn-outline-primary">Register</a>
+<body>
+    <header class="header-guest container">
+        <!-- Header logo-->
+        <div class="px-md-4 justify-content-between d-flex align-items-center h-100">
+            <img class="profile-img" src="{{ asset('/icons/deliveboo.svg') }}" />
+            <a href="{{ route('register') }}" class="btn btn-outline-primary">Register</a>
+        </div>
     </header>
-    <main>
+    <main class="wrapper">
         @yield('content')
     </main>
+    <footer class="footer py-4">
+        @include('layouts.partials.footer')
+    </footer>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
 </body>

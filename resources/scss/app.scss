@@ -1,13 +1,18 @@
 @use "./partials/variables" as *;
 @import "~bootstrap/scss/bootstrap";
 
-.guest-header {
-    height: 70px;
+.profile-img {
+    height: 50px;
 }
 
-#intro {
-    background-color: #000000;
-    min-height: 600px;
+.dashboard {
+    margin-top: 65px;
+}
+
+.header-guest {
+    align-items: center;
+    height: 70px;
+    margin-bottom: 60px;
 }
 
 // navbar
@@ -31,35 +36,62 @@
     border: none;
 }
 
-.mt-6 {
-    margin-top: 70px;
-}
-
-.pt-6 {
-    padding-top: 300px;
-}
-
 .wrapper {
-    height: 100vh;
+    margin-bottom: 1rem;
+    height: calc(100vh - 130px - 72px - 1rem);
+    min-height: 500px;
     display: flex;
     flex-direction: column;
+    // justify-content: space-between;
+    align-items: center;
 }
 
-// media query
-@media (max-width: 991.98px) {
-    .sidebar {
-        width: 100%;
-    }
+.footer {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
 
-@media (min-width: 991.98px) {
+.footer a {
+    color: black;
+}
+
+@media (min-width: 991px) {
     main.dashboard {
         padding-left: 240px;
     }
 }
 
-// @media (min-width: 992px) {
-//     #intro {
-//         margin-top: -58.59px;
-//     }
-// }
+// media query
+@media (max-width: 991px) {
+    .wrapper {
+        margin-bottom: 1rem;
+        height: calc(100vh - 130px - 72px - 1rem);
+        min-height: 700px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main.dashboard {
+        padding-left: 0px;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-guest {
+        margin-bottom: 20px;
+    }
+
+    .wrapper {
+        height: calc(100vh - 100px - 72px - 1rem);
+        min-height: 700px;
+    }
+
+    .fs-small {
+        font-size: .8rem;
+    }
+
+    .circle {
+        padding: 5px 5px !important;
+        border-radius: .5rem;
+    }
+}

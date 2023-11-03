@@ -150,7 +150,7 @@ class DishSeeder extends Seeder
 
         foreach ($dishes as $dish) {
             $newDish = new Dish();
-            $newDish->restaurant_id = fake()->numberBetween(1,10);
+            $newDish->restaurant_id = fake()->numberBetween(1,4);
             $newDish->name = $dish['name'];
             $newDish->description = $dish['description'];
             $newDish->ingredients = $dish['ingredients'];
