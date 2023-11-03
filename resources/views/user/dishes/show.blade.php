@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="container pt-4 mt-5 d-flex justify-content-center">
-        {{-- <h1>Piatto numero {{$dish->id}}</h1> --}}
         <div class="card mb-3">
             <div class="row g-0">
                 <div class="col-lg-4">

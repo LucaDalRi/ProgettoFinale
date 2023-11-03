@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Auth;
 
 class DishController extends Controller
 {
+
+    protected $validatedDish = [
+        "name" => ["required", "string"],
+        "description" => ["required", "string"],
+        "ingredients" => ["required", "string"],
+        "photo" => ["url:https", "nullable"],
+        "visible" => ["required", "boolean"],
+        "price" => ["required","decimal:2"]
+    ];
     /**
      * Display a listing of the resource.
      */
@@ -32,8 +41,10 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $data['restaurant_id'] = 1;
+        // $data = $request->all();
+        $data = $request->validate($this->validatedDish);
+        $data['restaurant_id'] = auth()->user()->id;
+        $data['photo'] = $data['photo'] ?? 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg';
         $newDish = new Dish();
         $newDish->fill($data)->save();
         return redirect()->route('dishes.index');
@@ -62,6 +73,7 @@ class DishController extends Controller
     public function update(Request $request, Dish $dish)
     {
         $data = $request->all();
+        // dd($data);
         $dish->update($data);
         return redirect()->route('dishes.index', compact('dish'));
     }

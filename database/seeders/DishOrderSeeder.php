@@ -18,7 +18,7 @@ class DishOrderSeeder extends Seeder
 
         foreach ($dishes as $dish) {
             $rndNum = fake()->numberBetween(1, 10);
-            $orderIds = fake()->randomElements($orders, 5);
+            $orderIds = fake()->randomElements($orders, fake()->randomNumber(1, 10));
             $dish->orders()->attach($orderIds, ['quantity' => $rndNum, 'created_at' => now(), 'updated_at' => now()]);
         }
     }

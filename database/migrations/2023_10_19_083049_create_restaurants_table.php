@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->foreignId('user_id')->constrained();
             $table->string('name');
-            $table->string('address');
-            $table->string('piva');
+            $table->string('address')->unique();
+            $table->string('piva', 11)->unique();
             $table->string('photo')->nullable();
             $table->timestamps();
         });

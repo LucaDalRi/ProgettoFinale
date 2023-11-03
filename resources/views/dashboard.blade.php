@@ -2,13 +2,15 @@
 
 @section('content')
     <div class="container pt-3">
-        <h2 class="fs-4 text-secondary">
-            {{ __('Dashboard') }}
-        </h2>
         <div class="row justify-content-center">
             <div class="col">
                 <div class="card">
-                    <div class="card-header">{{ Auth::user()->name }}</div>
+                    <div class="card-header">
+                        <div class="fw-medium text-muted">
+                            Ciao <span class="fst-italic">{{ Auth::user()->name }}</span>,
+                            dashboard del ristorante: <span class="fst-italic">{{ $restaurant->name }}</span>
+                        </div>
+                    </div>
 
                     <div class="card-body">
                         @if (session('status'))
