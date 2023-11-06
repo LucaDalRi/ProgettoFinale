@@ -1,12 +1,19 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-fluid pt-3">
+    <div id="dish-index" class="container-fluid pt-3">
         <div class="row text-center mb-3">
             <div class="col">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <div class="text-muted fw-medium">Dishes list</div>
-                        <a href="{{ route('dish.create') }}" class="btn btn-sm btn-outline-primary">Add dish</a>
+                        <div class="d-flex gap-1">
+                            {{-- <form action="{{ route('dishes.deleteAll') }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                            </form> --}}
+                            <a href="{{ route('dish.create') }}" class="btn btn-sm btn-outline-primary">Add dish</a>
+                        </div>
                     </div>
 
                     <div class="card-body">
@@ -93,4 +100,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    @vite(['resources/js/list.js'])
 @endsection
