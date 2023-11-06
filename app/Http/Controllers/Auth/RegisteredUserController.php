@@ -31,6 +31,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // dd($request);
         $request->validate([
             // user validation
             'name' => ['required', 'string', 'max:255'],
@@ -38,11 +39,9 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             
             // restaurant validation
-            'restaurant_id' => 'required|unique|numeric',
-            'restaurant_name' => 'required|unique|min:3|max:50',
-            'restaurant_address' => 'required|unique|min:5|max:70',
-            'restaurant_photo' => 'nullable'|'image',
-            'restaurant_piva' => 'required|unique|numeric|min:13|max:13'
+            'restaurant_name' => 'required|min:3|max:50',
+            'address' => 'required|unique:restaurants|min:5|max:70',
+            'piva' => 'required|unique:restaurants|min:11|max:11'
         ]);
         
         
@@ -57,10 +56,8 @@ class RegisteredUserController extends Controller
             'user_id' => $user->id,
             'name' => $request->restaurant_name,
             'address' => $request->address,
-            'photo' => $request->photo,
             'piva' => $request->piva
         ]);
-        
         event(new Registered($user));
 
         Auth::login($user);
