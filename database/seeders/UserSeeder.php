@@ -33,6 +33,31 @@ class UserSeeder extends Seeder
                 "name"=> "Giulia",
                 "email"=> "giulia@gmail.com",
                 "password"=> bcrypt("12345678"),
+            ],
+            [
+                "name"=> "Marco",
+                "email"=> "marco@gmail.com",
+                "password"=> bcrypt("12345678"),
+            ],
+            [
+                "name"=> "Ivan",
+                "email"=> "ivan@gmail.com",
+                "password"=> bcrypt("12345678"),
+            ],
+            [
+                "name"=> "Roberta",
+                "email"=> "roberta@gmail.com",
+                "password"=> bcrypt("12345678"),
+            ],
+            [
+                "name"=> "Maura",
+                "email"=> "maura@gmail.com",
+                "password"=> bcrypt("12345678"),
+            ],
+            [
+                "name"=> "Sonia",
+                "email"=> "sonia@gmail.com",
+                "password"=> bcrypt("12345678"),
             ]
         ];
         foreach ($users as $user) {

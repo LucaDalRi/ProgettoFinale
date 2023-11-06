@@ -4,19 +4,32 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Dish;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DishController extends Controller
 {
+        public function __construct()
+    {
+        $this->middleware('dish')->except('index');
+    }
+        protected $validatedDish = [
+        "name" => ["required", "string"],
+        "description" => ["required", "string"],
+        "ingredients" => ["required", "string"],
+        "photo" => ["url:https", "nullable"],
+        "visible" => ["required", "boolean"],
+        "price" => ["required","decimal:2"]
+    ];
     /**
      * Display a listing of the resource.
      */
     public function index()
     {   
-        $user_id = auth()->user()->id;
-        $dishes = Dish::where('restaurant_id', $user_id)->orderBy('name')->get();
-        return view("user.dishes.index")->with("dishes", $dishes);
+        $user = Auth::user();
+        $dishes = Dish::where('restaurant_id', $user->id)->get();
+        return view("user.dishes.index", compact("dishes"));
     }
 
     /**
@@ -32,8 +45,9 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        $data['restaurant_id'] = 1;
+        $data = $request->validate($this->validatedDish);
+        $data['restaurant_id'] = auth()->user()->id;
+        $data['photo'] = $data['photo'] ?? 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg';
         $newDish = new Dish();
         $newDish->fill($data)->save();
         return redirect()->route('dishes.index');
@@ -44,7 +58,12 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        return view("user.dishes.show", compact("dish"));
+        // $user = Auth::user();
+        // if($user->restaurant->id === $dish->restaurant_id){
+            return view("user.dishes.show", compact("dish"));
+        // } else {
+        //     abort(404);
+        // }
     }
 
     /**
@@ -52,8 +71,12 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        $dish = Dish::find($dish->id);
+        // $user = Auth::user();
+        // if($user->restaurant->id === $dish->restaurant_id){
         return view("user.dishes.edit", compact("dish"));
+        // } else {
+            // abort(404);
+        // }
     }
 
     /**
@@ -61,17 +84,33 @@ class DishController extends Controller
      */
     public function update(Request $request, Dish $dish)
     {
-        $data = $request->all();
+        // $user = Auth::user();
+        // if($user->restaurant->id === $dish->restaurant_id){
+        $data = $request->validate($this->validatedDish);
         $dish->update($data);
-        return redirect()->route('dishes.index', compact('dish'));
+        return redirect()->route('dishes.index');
+        // } else {
+        //     abort(404);
+        // }
     }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Dish $dish)
-    {
-        $dish->delete();
-        return redirect()->route('dishes.index');
+    {   
+        // $user = Auth::user();
+        // if($user->restaurant->id === $dish->restaurant_id){
+            $dish->delete();
+            return redirect()->route('dishes.index');
+        // } else { 
+        //     abort(404);
+        // }
     }
+
+    // public function destroyAll(Dish $dishes){
+    //     $dishes->query()->delete();
+    //     return redirect()->route('dishes.index');
+    // }
+    
 }

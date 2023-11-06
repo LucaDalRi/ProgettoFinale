@@ -19,7 +19,7 @@
                                     <div class="form-outline mb-4">
                                         <input id="name" type="text"
                                             class="form-control form-control-lg @error('name') is-invalid @enderror"
-                                            name="name" value="{{ old('name') }}" required>
+                                            name="name" value="{{ old('name') }}">
 
                                         @error('name')
                                             <span class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
                                     <div class="form-outline mb-4">
                                         <input id="restaurant_name" type="text"
                                             class="form-control form-control-lg @error('restaurant_name') is-invalid @enderror"
-                                            name="restaurant_name" value="{{ old('restaurant_name') }}" required>
+                                            name="restaurant_name" value="{{ old('restaurant_name') }}">
 
                                         @error('restaurant_name')
                                             <span class="invalid-feedback" role="alert">
@@ -47,7 +47,7 @@
                                     <div class="form-outline mb-4">
                                         <input id="address" type="text"
                                             class="form-control form-control-lg @error('address') is-invalid @enderror"
-                                            name="address" value="{{ old('address') }}" required>
+                                            name="address" value="{{ old('address') }}">
 
                                         @error('address')
                                             <span class="invalid-feedback" role="alert">
@@ -61,7 +61,7 @@
                                     <div class="form-outline mb-4">
                                         <input id="piva" type="text"
                                             class="form-control form-control-lg @error('piva') is-invalid @enderror"
-                                            name="piva" value="{{ old('piva') }}" required>
+                                            name="piva" value="{{ old('piva') }}">
 
                                         @error('piva')
                                             <span class="invalid-feedback" role="alert">
@@ -77,7 +77,7 @@
                                     <div class="form-outline mb-4">
                                         <input id="email" type="email"
                                             class="form-control form-control-lg @error('email') is-invalid @enderror"
-                                            name="email" value="{{ old('email') }}" required autocomplete="email">
+                                            name="email" value="{{ old('email') }}" autocomplete="email">
 
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -91,7 +91,7 @@
                                     <div class="form-outline mb-4">
                                         <input id="password" type="password"
                                             class="form-control form-control-lg @error('password') is-invalid @enderror"
-                                            name="password" required>
+                                            name="password">
 
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
@@ -104,7 +104,7 @@
                                     {{-- confirm password --}}
                                     <div class="form-outline mb-4">
                                         <input id="password-confirm" type="password" class="form-control form-control-lg"
-                                            name="password_confirmation" required>
+                                            name="password_confirmation">
                                         <label for="password-confirm"
                                             class="form-label">{{ __('Confirm Password') }}</label>
                                     </div>

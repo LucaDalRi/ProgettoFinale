@@ -36,8 +36,11 @@
                                 height="35" alt="user profile image" loading="lazy" />
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="{{ url('profile') }}">{{ Auth::user()->name }}</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li><a class="dropdown-item" href="{{ url('dashboard') }}">{{ __('Dashboard') }}</a></li>
-                            <li><a class="dropdown-item" href="{{ url('profile') }}">{{ __('Profile') }}</a></li>
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();

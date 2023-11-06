@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->string('address');
-            $table->string('phone');
+            $table->string('phone')->unique();
             $table->boolean('status')->default(1);
             $table->decimal('totalprice',10,2);
             $table->timestamps();
