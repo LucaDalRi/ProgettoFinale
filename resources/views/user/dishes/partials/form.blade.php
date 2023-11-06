@@ -31,6 +31,7 @@
             <small class="text-danger">{{ $message }}</small>
         @enderror
     </div>
+
     <div class="col-6">
         <div class="form-outline">
             <textarea class="form-control form-control-lg @error('ingredients') error @enderror" id="ingredients" name="ingredients"
@@ -52,20 +53,16 @@
         @enderror
     </div>
     <div class="col-12">
-        <p class="m-1">Visible</p>
-        <div class="radio-btn d-flex gap-2">
-            <div class="form-check @error('visible') error @enderror">
-                <label for="visible-yes" class="form-check-label">Yes</label>
-                <input type="radio" class="form-check-input" id="visible-yes" name="visible" value="1" checked>
-            </div>
-            <div class="form-check">
-                <label for="visible-no" class="form-check-label">No</label>
-                <input type="radio" class="form-check-input" id="visible-no" name="visible" value="0">
-            </div>
+        <div class="form-check form-switch">
+            <input type="hidden" name="visible" value="0">
+            <input class="form-check-input my-switch" type="checkbox" role="switch" id="visible" name="visible"
+                value="1" @checked(old('visible', $dish->visible))>
+            <label class="form-check-label" for="visible">Visible</label>
         </div>
         @error('visible')
             <small class="text-danger">{{ $message }}</small>
         @enderror
+
     </div>
     <div class="col-12">
         <div class="d-flex justify-content-between align-self-center">
