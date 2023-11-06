@@ -57,7 +57,7 @@ tbody>tr>td {
 .form-check-input:focus {
     border-color: var(--deliv-color);
     outline: 0;
-    box-shadow: 0 0 0 0.25rem #6ef3ec45;
+    box-shadow: 0 0 0 0.15rem #6ef3ec45;
 }
 
 .form-check-input[type="radio"]:checked::after {
@@ -208,7 +208,7 @@ tbody>tr>td {
     z-index: 1;
     color: var(--bs-list-group-action-hover-color);
     text-decoration: none;
-    background-color: rgba(214, 255, 239, 0.127);
+    background-color: rgba(214, 255, 239, 0);
     border-radius: .2rem;
 }
 
@@ -271,20 +271,20 @@ a.btn-outline-primary:hover {
     background-color: var(--deliv-color);
 }
 
-.active.ripple:hover {
+.active.my-ripple:hover {
     z-index: 2;
     background-color: #37aaa5;
     color: white;
 }
 
-.active.ripple:hover>span,
-.active.ripple:hover>i {
+.active.my-ripple:hover>span,
+.active.my-ripple:hover>i {
     color: white;
 }
 
-.active.ripple>span,
-.active.ripple>i {
-    color: white;
+.active.my-ripple>span,
+.active.my-ripple>i {
+    color: rgb(13, 12, 12);
 }
 
 .fs-small {
@@ -306,7 +306,7 @@ a.btn-outline-primary:hover {
     border: 1px solid lightgray;
 }
 
-a.ripple {
+a.my-ripple {
     border: none;
 }
 
@@ -314,6 +314,17 @@ a.ripple {
 .error {
     border: 1px solid #dc3545;
     outline-color: #dc3545;
+}
+
+.error-radio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    width: fit-content;
+    padding: 2px 4px;
+    border: 1px solid #dc3545;
+    outline-color: #dc3545;
+    border-radius: .25rem;
 }
 
 .form-outline .form-control.error:focus~.form-label {
@@ -358,4 +369,32 @@ a.ripple {
     box-sizing: border-box;
     background: transparent;
     transition: all .2s linear;
+}
+
+.form-switch .form-check-input:checked[type="checkbox"]::after {
+    background-color: #11c7b8;
+}
+
+.form-switch .form-check-input:checked:focus::before {
+    box-shadow: 0px 0px 0 10px #5bc9c0e5;
+}
+
+.form-switch .form-check-input:focus::before {
+    box-shadow: 3px 0px 0 10px rgb(255, 255, 255);
+}
+
+.form-switch .form-check-input:checked:focus::before {
+    box-shadow: 0px 0px 0 10px rgba(255, 255, 255, 0.898);
+}
+
+.my-switch.form-check-input:focus {
+    box-shadow: none;
+}
+
+.my-switch {
+    border: 2px solid red;
+}
+
+.form-switch .form-check-input::after {
+    box-shadow: 0 0 3px 0 rgba(13, 12, 12, 0.76), 0 2px 2px 0 rgba(0, 0, 0, .04);
 }
