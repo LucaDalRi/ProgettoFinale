@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\DishController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,14 +31,18 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::resource('/dishes', DishController::class)
-    ->middleware(['auth', 'verified'])
-    ->names([
+
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::resource('/dishes', DishController::class)
+        ->names([
         'index' => 'dishes.index',
         'create' => 'dish.create',
         'show' => 'dish.show',
         'edit' => 'dish.edit',
-        'delete' => 'dish.destroy',
+        'delete' => 'dish.destroy'
     ]);
+});
+
+// Route::middleware('auth')->delete('/dishes', [DishController::class, 'destroyAll'])->name('dishes.deleteAll');
 
 require __DIR__.'/auth.php';
