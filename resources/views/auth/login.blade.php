@@ -13,34 +13,37 @@
                                 loading="lazy" />
                         </div>
                         <!-- Email input -->
-                        <div class="form-outline mb-4">
-
-                            <input class="form-control form-control-lg" id="email" type="email"
-                                class="form-control @error('email') is-invalid @enderror" name="email"
-                                value="{{ old('email') }}" required autocomplete="email" />
-                            <label class="form-label" for="email">Email address</label>
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div class="form-outline">
+                                    <input class="form-control form-control-lg" id="email" type="email"
+                                        class="form-control @error('email') error @enderror" name="email"
+                                        value="{{ old('email') }}" required autocomplete="email" />
+                                    <label class="form-label" for="email">Email address</label>
+                                </div>
+                                @error('email')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
                         </div>
 
                         <!-- Password input -->
-                        <div class="form-outline mb-4">
-                            <input id="password" type="password"
-                                class="form-control form-control-lg @error('password') is-invalid @enderror"
-                                name="password">
-                            <label class="form-label" for="password">Password</label>
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div class="form-outline">
+                                    <input id="password" type="password"
+                                        class="form-control form-control-lg @error('password') error @enderror"
+                                        name="password">
+                                    <label class="form-label" for="password">Password</label>
+                                </div>
+                                @error('email')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
                         </div>
 
                         <!-- 2 column grid layout for inline styling -->
-                        <div class="row mb-4">
+                        <div class="row mb-3">
                             <div class="col d-flex justify-content-center align-items-center">
                                 <!-- Checkbox -->
                                 <div class="form-check">
@@ -71,7 +74,6 @@
                     </form>
                 </div>
             </div>
-            {{-- </div> --}}
         </div>
     </div>
 @endsection
