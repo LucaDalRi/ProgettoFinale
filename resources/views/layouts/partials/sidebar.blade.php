@@ -16,6 +16,13 @@
                     <span>Dishes</span>
                 </a>
             </div>
+            <div class="d-flex align-items-center" id="test">
+                <a href="{{ route('restaurants.index') }}"
+                    class="list-group-item list-group-item-action py-2 my-ripple {{ Route::current()->getName() == 'restaurants.index' ? 'active' : '' }}">
+                    <i class="fa-solid fa-home me-3"></i>
+                    <span>Restaurants</span>
+                </a>
+            </div>
             <div class="d-flex align-items-center">
                 <a href="#analytics" class="list-group-item list-group-item-action py-2 my-ripple"><i
                         class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\User\DishController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,18 @@ Route::prefix('user')->middleware(['auth'])->group(function () {
         'delete' => 'dish.destroy'
     ]);
 });
+
+Route::prefix('user')->middleware(['auth'])->group(function () {
+    Route::resource('/restaurants', RestaurantController::class)
+        ->names([
+        'index' => 'restaurants.index',
+        'create' => 'restaurants.create',
+        'show' => 'restaurants.show',
+        'edit' => 'restaurants.edit',
+        'delete' => 'restaurants.destroy'
+    ]);
+});
+
 
 // Route::middleware('auth')->delete('/dishes', [DishController::class, 'destroyAll'])->name('dishes.deleteAll');
 

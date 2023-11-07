@@ -14,7 +14,7 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::all();
 
-        return view('user.index', compact('restaurant'));
+        return view('user.restaurants.index', compact('restaurant'));
     }
 
     /**
@@ -24,7 +24,7 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::all();
 
-        return view('user.index', compact('restaurant'));
+        return view('user.restaurants.index', compact('restaurant'));
     }
 
     /**
@@ -47,7 +47,7 @@ class RestaurantController extends Controller
         $singleRestaurant->piva = $data['piva'];
         $singleRestaurant->save();
 
-        return redirect()->route('welcome.index');
+        return redirect()->route('user.restaurants.index');
     }
 
     /**
@@ -57,7 +57,7 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::findOrFail($id);
 
-        return view(('user.show'), compact('restaurant'));
+        return view(('user.restaurants.show'), compact('restaurant'));
     }
 
     /**
@@ -67,7 +67,7 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::findOrFail($id);
 
-        return view(('user.edit'), compact('restaurant'));
+        return view(('user.restaurants.edit'), compact('restaurant'));
     }
 
     /**
@@ -92,7 +92,7 @@ class RestaurantController extends Controller
         $singleRestaurant->piva = $data['piva'];
         $singleRestaurant->save();
 
-        return redirect()->route('welcome.show', $restaurant->id);
+        return redirect()->route('user.restaurants.show', $restaurant->id);
     }
 
     /**
@@ -104,6 +104,6 @@ class RestaurantController extends Controller
 
         $restaurant->delete();
 
-        return redirect()->route('guest.index');
+        return redirect()->route('user.restaurants.index');
     }
 }
