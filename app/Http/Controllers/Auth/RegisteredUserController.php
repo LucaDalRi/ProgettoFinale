@@ -32,7 +32,6 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        // dd($request);
         $request->validate([
             // user validation
             'name' => ['required', 'string', 'max:255'],
@@ -44,7 +43,6 @@ class RegisteredUserController extends Controller
             'address' => 'required|unique:restaurants|min:5|max:70',
             'piva' => 'required|unique:restaurants|min:11|max:11',
             'typologies' => 'array|exists:typologies,id'
-
         ]);
         
         
@@ -61,9 +59,10 @@ class RegisteredUserController extends Controller
             'piva' => $request->piva
             
         ]);
-        $restaurant->typologies()->attach($request->typology);
-        event(new Registered($user));
+        $restaurant->typologies()->attach($request->typologies, ['created_at' => now(), 'updated_at' => now()]);
+        $restaurant->typologies()->detach($request->typologies, ['created_at' => now(), 'updated_at' => now()]);
 
+        event(new Registered($user));
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
