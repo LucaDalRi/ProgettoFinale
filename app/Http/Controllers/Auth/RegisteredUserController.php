@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
+use App\Models\Typology;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -21,7 +22,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        return view('auth.register', ['typologies' => Typology::all()]);
     }
 
     /**
@@ -41,7 +42,9 @@ class RegisteredUserController extends Controller
             // restaurant validation
             'restaurant_name' => 'required|min:3|max:50',
             'address' => 'required|unique:restaurants|min:5|max:70',
-            'piva' => 'required|unique:restaurants|min:11|max:11'
+            'piva' => 'required|unique:restaurants|min:11|max:11',
+            'typologies' => 'array|exists:typologies,id'
+
         ]);
         
         
@@ -51,13 +54,14 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
         
-        
         $restaurant = Restaurant::create([
             'user_id' => $user->id,
             'name' => $request->restaurant_name,
             'address' => $request->address,
             'piva' => $request->piva
+            
         ]);
+        $restaurant->typologies()->attach($request->typology);
         event(new Registered($user));
 
         Auth::login($user);

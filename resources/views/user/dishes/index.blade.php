@@ -104,5 +104,5 @@
     </div>
 @endsection
 @section('script')
-    @vite(['resources/js/list.js'])
+    @vite(['resources/js/list.js', 'resources/scss/orientation.scss'])
 @endsection

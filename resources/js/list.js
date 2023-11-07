@@ -7,7 +7,7 @@ function checkOrientation() {
     if (w < 577) {
         if (h > w) {
             if (!message) {
-                document.body.innerHTML = `<h3 id="rotate" class="text-center">Ruota lo schermo per<br> visualizzare il contenuto</h3>`;
+                document.body.innerHTML = `<h3 id="rotate" class="d-flex justify-content-center align-items-center vh-100">Ruota lo schermo per<br> visualizzare il contenuto</h3>`;
             }
         } else {
             if (message) {

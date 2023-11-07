@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::prefix('admin')->middleware(['auth'])->group(function () {
+Route::prefix('user')->middleware(['auth'])->group(function () {
     Route::resource('/dishes', DishController::class)
         ->names([
         'index' => 'dishes.index',

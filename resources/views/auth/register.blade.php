@@ -1,7 +1,7 @@
 @extends('layouts.guest')
 
 @section('content')
-    <div id="intro">
+    <div id="intro" class="wrapper h-100">
         <div class="d-flex align-items-center">
             <div class="container">
                 <div class="row justify-content-center">
@@ -108,6 +108,19 @@
                                         <label for="password-confirm"
                                             class="form-label">{{ __('Confirm Password') }}</label>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="shadow-none mb-3">
+                                <p class="m-1">Typologies</p>
+                                <div class="row border rounded-2 m-0">
+                                    @foreach ($typologies as $typology)
+                                        <div class="col-6 p-2">
+                                            <input id="{{ $typology->id }}" type="checkbox" class="form-check-input"
+                                                name="typologies[]" value="{{ $typology->id }}">
+                                            <label class="form-check-label ms-1"
+                                                for="typologies">{{ $typology->name }}</label>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
 

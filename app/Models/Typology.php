@@ -9,6 +9,7 @@ class Typology extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
     public function restaurants(){
         return $this->belongsToMany(Restaurant::class);
     }

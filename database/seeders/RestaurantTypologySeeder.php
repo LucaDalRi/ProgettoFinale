@@ -17,7 +17,7 @@ class RestaurantTypologySeeder extends Seeder
         $restaurants = Restaurant::all();
 
         foreach ($restaurants as $restaurant) {
-            $restaurant->typologies()->attach(Typology::inRandomOrder()->first()->id);
+            $restaurant->typologies()->attach(Typology::inRandomOrder()->first()->id, ['created_at' => now(), 'updated_at' => now()]);
         }
     }
 }

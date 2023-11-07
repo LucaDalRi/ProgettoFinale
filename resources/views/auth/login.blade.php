@@ -1,8 +1,8 @@
 @extends('layouts.guest')
 
 @section('content')
-    <div id="intro">
-        <div class="d-flex align-items-center h-100">
+    <div id="intro" class="wrapper wrapper-login">
+        <div class="d-flex align-items-center">
             {{-- <div class="container p-5"> --}}
             <div class="row p-2 justify-content-center">
                 <div class="col-12">

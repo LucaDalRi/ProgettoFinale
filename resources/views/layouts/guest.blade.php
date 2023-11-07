@@ -26,7 +26,7 @@
             <a href="{{ route('register') }}" class="btn btn-outline-primary">Register</a>
         </div>
     </header>
-    <main class="wrapper">
+    <main>
         @yield('content')
     </main>
     <footer class="footer py-4">
