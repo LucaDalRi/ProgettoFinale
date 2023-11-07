@@ -6,14 +6,6 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <div class="text-muted fw-medium">restaurants list</div>
-                        <div class="d-flex gap-1">
-                            {{-- <form action="{{ route('dishes.deleteAll') }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
-                            </form> --}}
-                            <a href="{{ route('restaurants.create') }}" class="btn btn-sm btn-outline-primary">Add restaurants</a>
-                        </div>
                     </div>
 
                     <div class="card-body">
