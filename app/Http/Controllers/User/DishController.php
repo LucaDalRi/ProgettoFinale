@@ -12,7 +12,7 @@ class DishController extends Controller
 {
         public function __construct()
     {
-        $this->middleware('dish')->except('index');
+        $this->middleware('dish')->except(['index', 'create', 'store']);
     }
         protected $validatedDish = [
         "name" => ["required", "string"],
@@ -37,6 +37,7 @@ class DishController extends Controller
      */
     public function create(Dish $dish)
     {
+        $dish->visible = true;
         return view("user.dishes.create", compact("dish"));
     }
 

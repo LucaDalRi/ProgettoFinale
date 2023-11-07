@@ -53,11 +53,18 @@
         @enderror
     </div>
     <div class="col-12">
-        <div class="form-check form-switch">
-            <input type="hidden" name="visible" value="0">
-            <input class="form-check-input my-switch" type="checkbox" role="switch" id="visible" name="visible"
-                value="1" @checked(old('visible', $dish->visible))>
-            <label class="form-check-label" for="visible">Visible</label>
+        <div>
+            <div class="mb-1">Visibility</div>
+            <div class="form-check form-switch">
+                <input type="hidden" name="visible" value="0">
+                <input class="form-check-input my-switch" type="checkbox" role="switch" id="visible" name="visible"
+                    value="1" @checked(old('visible', $dish->visible))>
+                <label id="visible-label" class="form-check-label" for="visible">
+                    {{ $dish->visible ? 'On' : 'Off' }}
+
+                </label>
+            </div>
+
         </div>
         @error('visible')
             <small class="text-danger">{{ $message }}</small>

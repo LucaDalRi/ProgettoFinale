@@ -58,6 +58,8 @@
                                         <td>
                                             <div>{{ $dish->visible ? 'Si' : 'No' }}
                                         </td>
+
+                                        {{-- action buttons --}}
                                         <td class="text-center d-none d-md-table-cell" style="min-width: 190px">
                                             <div class="d-flex justify-content-center gap-1">
                                                 <a href="{{ route('dish.show', $dish->id) }}"

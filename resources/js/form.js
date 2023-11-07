@@ -11,6 +11,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.getElementById('visible').addEventListener('change', function () {
+    let isVisible = document.getElementById('visible-label');
+    if (this.checked) {
+        isVisible.innerText = 'On';
+    } else {
+        isVisible.innerText = 'Off';
+    }
+});
+
 // document.addEventListener("keyup", function () {
 //     const input = document.getElementById("name");
 //     const formNotch = document.querySelector('.form-notch');
